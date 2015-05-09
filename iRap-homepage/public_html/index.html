@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>iRap</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <style>
+        body {
+            padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+        }
+
+    </style>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/docs.css" rel="stylesheet">
+</head>
+
+<body data-spy="scroll" data-target=".subnav" data-offset="50">
+<div class="header"></div>
+<div class="container">
+
+   <div class="row">
+        <div id="content" class="span12"> 
+        <p class="tab"> Many LOD datasets, such as DBpedia and LinkedGeoData,
+are voluminous and process large amounts of requests from diverse applications.
+Many data products and services rely on full or partial local
+LOD replications to ensure faster querying and processing. While such
+replicas enhance the flexibility of information sharing and integration
+infrastructures, they also introduce data duplication with all the associated
+undesirable consequences. Given the evolving nature of the original
+and authoritative datasets, to ensure consistent and up-to-date replicas
+frequent replacements are required at a great cost. </p> <p class="tab">
+We introduce an approach for interest-based RDF update propagation, which
+propagates only interesting parts of updates from the source to the target
+dataset. Effectively, this enables remote applications to ‘subscribe’
+to relevant datasets and consistently reflect the necessary changes locally
+without the need to frequently replace the entire dataset (or a
+relevant subset). Our approach is based on a formal definition for graph pattern-based
+interest expressions that is used to filter interesting parts
+of updates from the source. We implement the approach in the iRap
+framework and perform a comprehensive evaluation based on DBpedia
+Live updates, to confirm the validity and value of our approach. </p>
+<p class="centeredImage">
+    <img class="about-icon" src="img/framework.png" width="650" ALT="image">
+Figure: Architecture of the iRap interest-based RDF update propagation framework.
+</p>
+</div>
+    </div>
+
+
+    <footer class="footer">
+        <p class="pull-right"><a href="index.html">Back Home</a></p>
+
+        <p> <a href="http://eis.iai.uni-bonn.de/About.html" target="_blank">Enterprise Information Systems (EIS) </a>
+            Group at the University of Bonn.</p>
+    </footer>
+ </div>
+<script src="lib/jquery-1.7.2.min.js"></script>
+<script src="lib/underscore-min.js"></script>
+<script src="lib/backbone-min.js"></script>
+<script src="lib/bootstrap.js"></script>
+
+<script src="js/utils.js"></script>
+<script src="js/views/header.js"></script>
+<script src="js/views/about.js"></script>
+<script src="js/views/demo.js"></script>
+<script src="js/views/evaluation.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>

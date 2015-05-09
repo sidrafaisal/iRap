@@ -1,0 +1,141 @@
+<div class="container">
+    <div class="row">
+    <div class="span12">
+
+        <p class="h"> Sample case study </p>
+        <p class="tab"> Let us assume the following two files are being published by the
+            DBpedia Live extractor for the changes made on Feb 06, 2015 between 05:00
+            PM (t0) and 05:02 PM (t1): </p>
+
+        <table style="width:100%">
+            <tr>
+                <td><p class="h1"> Listing (1.1) File 000001.removed.nt </p></td>
+                <td><p class="h1">Listing (1.2) File 000001.added.nt   </p>  </td> 
+            </tr>
+            <tr>
+                <td>       
+                    <p>
+                        dbr:Marcel dbp:goals 1 .<br/>
+                        dbr:Marcel dbo:team dbr:FNFT .<br/>
+                        dbr:Tim%02 foaf:name "Tim Berners-Lee" .<br/>
+                        dbr:Cristiano_Ronaldo dbo:goals 96 .<br/>       
+                    </p>
+                </td>
+                <td> 
+                    <p>
+                        dbr:Cristiano_Ronaldo dbo:goals 216 .<br/>
+                        dbr:Barack_Obama foaf:name "Barack Obama" .<br/>
+                        dbr:Barack_Obama foaf:homepage "http://www.barackobama.com/" .<br/>
+                        dbr:Rio_Ferdinand a foaf:Person .<br/>
+                        dbr:Rio_Ferdinand a dbo:Athlete .<br/>
+                        dbr:Rio_Ferdinand dbp:goals 2 .<br/>
+                        dbr:Arvid_Smit a dbo:Athlete .    <br/>
+                    </p> 
+                </td> 
+            </tr>
+        </table>
+        <br/>
+        <p class="tab"> An interest expression SPARQL query for a list of an athlete with information about
+            goals scored, and optionally their homepage, is expressed as follows:</p>
+        SELECT * WHERE {  <br/>
+        ?a a dbo:Athlete .  <br/>
+        ?a dbp:goals ?goals .  <br/>
+        OPTIONAL {  <br/>
+        ?a foaf:homepage ?page .  
+        }  <br/>
+        } <br/> <br/>
+        <p class="tab">Let the target dataset at time t0 contains the following triples:  </p>   
+
+        <p>
+            dbr:Marcel a dbo:Athlete .<br/>
+            dbr:Marcel dbp:goals 1 .<br/>
+            dbr:Cristiano_Ronaldo a dbo:Athlete .<br/>
+            dbr:Cristiano_Ronaldo dbo:goals 96 .<br/>
+            dbr:Cristiano_Ronaldo foaf:homepage "http://cristianoronaldo.com" .<br/>
+        </p> 
+        <br/>
+        <p class="tab">An interesting changeset for our running example is as follows:</p>   
+        <table style="width:100%">
+            <tr>
+                <td>
+                    <p class="h1">interesting removed triples</p> 
+                </td>
+                <td>
+                    <p class="h1">interesting added triples</p> 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>
+                        dbr:Marcel a dbo:Athlete .<br/>
+                        dbr:Marcel dbp:goals 1 .<br/>
+                        dbr:Cristiano_Ronaldo dbo:goals 96 .<br/>
+                        dbr:Cristiano_Ronaldo a dbo:Athlete .<br/>
+                        dbr:Cristiano_Ronaldo foaf:homepage "http://cristianoronaldo.com" . <br/>    
+                    </p>    
+                </td>
+                <td>
+                    <p>
+                        dbr:Cristiano_Ronaldo dbo:goals 216 .<br/>
+                        dbr:Cristiano_Ronaldo a dbo:Athlete .<br/>
+                        dbr:Cristiano_Ronaldo foaf:homepage "http://cristianoronaldo.com" .<br/>
+                        dbr:Rio_Ferdinand a dbo:Athlete .<br/>
+                        dbr:Rio_Ferdinand dbp:goals 10 .     <br/>      
+                    </p>    
+                </td>
+            </tr>
+        </table>
+
+        <br/>
+        <p class="tab">Potentially interesting changeset for our running example is as follows:</p>
+        <table style="width:100%">
+            <tr>
+                <td>
+                    <p class="h1">Potentially interesting removed triples </p> 
+
+                </td> 
+                <td>
+                    <p class="h1">Potentially interesting added triples</p> 
+                </td> 
+            </tr>
+            <tr>
+                <td>
+                    <p> 
+                        {}
+                    </p> 
+                </td> 
+                <td>
+                    <p> 
+                        dbr:Arvid_Smit a dbo:Athlete .<br/>
+                        dbr:Barack_Obama foaf:homepage "http://www.barackobama.com" .<br/>
+                        dbr:Marcel a dbo:Athlete .            <br/> 
+                    </p> 
+                </td>            
+            </tr>
+
+        </table> 
+        <br/>
+        <p class="tab">
+            Propagation of above interesting changeset to the target
+            transforms the target dataset to:
+        </p>
+        <p>
+            dbr:Cristiano_Ronaldo dbo:goals 216 .<br/>
+            dbr:Cristiano_Ronaldo a dbo:Athlete .<br/>
+            dbr:Cristiano_Ronaldo foaf:homepage "http://cristianoronaldo.com" .<br/>
+            dbr:Rio_Ferdinand a dbo:Athlete .<br/>
+            dbr:Rio_Ferdinand dbp:goals 10 .  <br/>  
+        </p> 
+        <p class="tab">Potentially interesting dataset after change propagation becomes:</p>
+        <p> 
+            dbr:Arvid_Smit a dbo:Athlete .<br/>
+            dbr:Barack_Obama foaf:homepage "http://www.barackobama.com" .<br/>
+            dbr:Marcel a dbo:Athlete . <br/>            
+        </p> 
+
+
+    </div>
+</div>
+    </div>
+<div class="mov-to-bottom">
+</div>
