@@ -1514,7 +1514,10 @@ table {
 .table th {
   font-weight: bold;
 }
-
+.td, 
+.th{
+     width: 250px;
+}
 .table thead th {
   vertical-align: bottom;
 }

@@ -17,6 +17,10 @@ body {
   /*background-repeat: repeat-x;*/
   /*background-position: 0 40px;*/
 }
+.fig {
+    width: 650px;
+    height: auto;
+}
  .centeredImage
     {
     text-align:center;

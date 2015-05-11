@@ -1,41 +1,75 @@
 <div class="container">
-<div class="row">
-    <div class="span12">
-        
-<p class="h">Evaluation
+    <div class="row">
+        <div class="span12">
+
+            <p class="h">Evaluation
+            </p>
+
+<p class="tab">
+                 To evaluate the proposed approach, we performed experiments on the iRap
+                framework using <a href="http://live.dbpedia.org/changesets/" target="_blank">
+                    changesets published by DBpedia</a> and compared the results
+                with the <a href="https://github.com/dbpedia/dbpedia-live-mirror" target="_blank">
+                    DBpedia Live Mirror</a> tool. 
+                The comparison considers two cases: using iRap to update a previously-established 
+                local replica of 
+            <ul>
+                <li>an entire remote dataset
+                </li>
+                <li>a subset of a remote dataset
+                </li>
+            </ul>   
+</p>   
+
+            <p class="tab"> 
+                These two cases simulate two ways in which iRap can be used:
+            <ul>
+                <li>using interest-based changeset propagation for future
+                    updates of a local copy of a large dataset
+                </li>
+                <li>starting with a new subset of the large dataset.
+                </li>
+            </ul>
+            </p>
+
+            <p class="tab">
+                We set up two target datasets and potentially interesting dataset using Jena
+                TDB and jena-fuseki for each dataset. The potentially interesting dataset stores
+                potentially interesting triples for each interest expression within a named graph.
+                All experiments were carried out on a 64-bit machine with Windows 7, Intel(R)
+                Core i7-4770 CPU, 16GB RAM and 1TB HD.
+            </p>
+
+            <p class="tab">
+                We tested our approach using the DBpedia dump for the initial setup of the target datasets for two
+                different application domains, namely, Location and Football datasets. For study purposes, the evaluation material can be found at iRap's <a href="https://github.com/EIS-Bonn/iRap" target="_blank"> GitHub repository.</a>
+
+            </p>
+            <p class="tab">
+                An thorough evaluation of the approach, using large-scale real-world
+                data dumps and changesets regularly provided by a renowned LOD dataset, indicates
+                that our method can significantly cut down on both the size of the data
+                updates required to consistently maintain a localized dataset replication up-to-date,
+                as well as the speed by which such updates can take place.
+            </p>
+<p class="centeredImage">
+    <img class="fig" src="img/graph.png" ALT="image">
+<br/>Figure 2: Evaluation results for Football dataset.
 </p>
 
 <p class="tab">
-An thorough evaluation of the approach, using large-scale real-world
-data dumps and changesets regularly provided by a renowned LOD dataset, indicates
-that our method can significantly cut down on both the size of the data
-updates required to consistently maintain a localized dataset replication up-to-date,
-as well as the speed by which such updates can take place.
-</p>
-
-<p class="tab">    
-    To evaluate the proposed approach, we performed experiments on the iRap
-    framework using <a href="http://live.dbpedia.org/changesets/" target="_blank">changesets published by DBpedia</a> and compared the results
-with the <a href="https://github.com/dbpedia/dbpedia-live-mirror" target="_blank">DBpedia Live Mirror</a> tool. The comparison considers two cases: using iRap to update a previously-established local replica of i) an entire remote
-dataset ii) a subset of a remote dataset. These two cases simulate two ways in which iRap can be used: i) using interest-based changeset propagation for future
-updates of a local copy of a large dataset or ii) starting with a new subset of the large dataset.
-</p>
-
-<p class="tab">
-We set up two target datasets and potentially interesting dataset using Jena
-TDB and jena-fuseki for each dataset. The potentially interesting dataset stores
-potentially interesting triples for each interest expression within a named graph.
-All experiments were carried out on a 64-bit machine with Windows 7, Intel(R)
-Core i7-4770 CPU, 16GB RAM and 1TB HD.
-<br/>
-We tested our approach using the DBpedia dump for the initial setup of the target datasets for two
-different application domains, namely, Location and Football datasets. The evaluation comprises two interest expressions.
-Changesets used for evaluation and further evaluation material can be found at iRap's <a href="https://github.com/EIS-Bonn/iRap" target="_blank"> GitHub repository.</a>
+    Figure 2a shows the number of triples published per day and the number
+of interesting triples and potentially interesting triples found from interest
+evaluation for Football dataset. Figure 2b shows the dataset growth comparison
+between iRap and a full mirror approach. As the figure clearly shows, iRap
+managed datasets are almost two orders of magnitude smaller and grow much
+slower than with a mirror approach. Note that the growth for each datasets is
+calculated by subtracting the number of removed triples from and adding the
+number of added triples to the total number of triples in the dataset.
 
 </p>
-
+        </div>
     </div>
-</div>
 </div>
 <div class="mov-to-bottom">
 </div>
